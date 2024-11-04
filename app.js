@@ -9,7 +9,7 @@ const products = [
           img: "./img/air.png",
         },
         {
-          code: "darkblue",
+          code: "yellow",
           img: "./img/air2.png",
         },
       ],
@@ -89,25 +89,32 @@ const currentProductSizes = document.querySelectorAll(".size");
 const wrapper=document.querySelector('.sliderWrapper');
 const menuItem=document.querySelectorAll('.menuItem')
 
-menuItem.forEach((item,index)=>{
-    item.addEventListener('click',()=>{
-        //change the current slide
+menuItem.forEach((item, index) => {
+  item.addEventListener('click', () => {
+    // Remove 'active' class from all menu items
+    menuItem.forEach(el => el.classList.remove('active'));
+
+    // Add 'active' class to the clicked item
+    item.classList.add('active');
+
+    // Change the current slide
     wrapper.style.transform = `translateX(${-100 * index}vw)`;
 
-    //change the choosen product
+    // Change the chosen product
     choosenProduct = products[index];
 
-    //change texts of currentProduct
+    // Change texts of currentProduct
     currentProductTitle.textContent = choosenProduct.title;
     currentProductPrice.textContent = "$" + choosenProduct.price;
     currentProductImg.src = choosenProduct.colors[0].img;
 
-    //assing new colors
-    currentProductColors.forEach((color, index) => {
-      color.style.backgroundColor = choosenProduct.colors[index].code;
+    // Assign new colors
+    currentProductColors.forEach((color, colorIndex) => {
+      color.style.backgroundColor = choosenProduct.colors[colorIndex].code;
     });
-})
-})
+  });
+});
+
 
 currentProductColors.forEach((color,index)=>{
   color.addEventListener('click',()=>{

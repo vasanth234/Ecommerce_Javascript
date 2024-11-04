@@ -28,6 +28,17 @@ nav{
     padding:10px 20px;
 }
 
+.menuItem{
+  background-color: black;
+  border:1px solid black;
+  border-radius: 7px;
+}
+.menuItem.active{
+background-color: aquamarine;
+border:1px solid black;
+border-radius:6px;
+}
+
 
 .searchInput{
     border:none;
